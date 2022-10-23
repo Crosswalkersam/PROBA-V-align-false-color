@@ -57,7 +57,7 @@ for x in tqdm(range(ChannelA.width)):
         R = int(1.59 * A_value + 6.13 * B_value - 2.78 * C_value)
         Water.putpixel((x,y), (R, G, B))
 #Desert=================================================================
-        R = int(-3.7 * A_value - 0.86 * B_value + 7.1 * C_value)
+        R = int(-3.7 * A_value - 0.86 * B_value + 8.1 * C_value)
         G = int(-0.68 * A_value + 3.36 * B_value + 3.37 * C_value)
         B = int(-2.19 * A_value + 16.92 * B_value - 9.45 * C_value)
         Desert.putpixel((x,y), (R, G, B))
