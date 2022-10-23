@@ -7,7 +7,7 @@ After you installed Python on your machine, you need to install Image, Imageops,
 `pip install Pillow tqdm colorama`.
 
 # Usage
-Simply put images calle "Vegetation_1.png", "Vegetation_2.png" and "Vegetation_3.png" named into the same directory as the script.
+Simply put images named "Vegetation_1.png", "Vegetation_2.png" and "Vegetation_3.png" into the same directory as the script.
 Then you just have to run the script. That's it. All results will be saved in the same directory. 
 If your inputs are already aligned, you can skip aligning by setting `aligned = True` in the script
 
