@@ -22,7 +22,7 @@ if(aligned == False):
     ChannelC = ImageOps.mirror(ChannelC)
     ChannelC_width = ChannelC.width + 16
     ChannelC = ChannelC.resize((ChannelC_width, ChannelC.height))
-    ChannelC = ImageChops.offset(ChannelC, -8, 160)
+    ChannelC = ImageChops.offset(ChannelC, -8, 155)
     print(Fore.GREEN + "Saving Channel 3...")
     ChannelC.save("V3_resized.png")
 else:
