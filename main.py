@@ -31,6 +31,7 @@ else:
 Green = Image.new('RGB', (ChannelA.width, ChannelA.height))
 RGB = Image.new('RGB', (ChannelA.width, ChannelA.height))
 Water = Image.new('RGB', (ChannelA.width, ChannelA.height))
+Desert = Image.new('RGB', (ChannelA.width, ChannelA.height))
 
 for x in tqdm(range(ChannelA.width)):
     for y in range(ChannelA.height):
@@ -55,6 +56,13 @@ for x in tqdm(range(ChannelA.width)):
         G = int(2.18 * A_value + 0.91 * B_value + 2.72 * C_value)
         R = int(1.59 * A_value + 6.13 * B_value - 2.78 * C_value)
         Water.putpixel((x,y), (R, G, B))
+#Desert=================================================================
+        R = int(-3.7 * A_value - 0.86 * B_value + 7.1 * C_value)
+        G = int(-0.68 * A_value + 3.36 * B_value + 3.37 * C_value)
+        B = int(-2.19 * A_value + 16.92 * B_value - 9.45 * C_value)
+        Desert.putpixel((x,y), (R, G, B))
+print(Fore.GREEN + "Done! Saving images!")
 Green.save("Green.jpg")
 RGB.save("RGB.jpg")
 Water.save("Water.jpg")
+Desert.save("Desert.jpg")
