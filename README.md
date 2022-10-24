@@ -15,9 +15,11 @@ If your inputs are already aligned, you can skip aligning by setting `aligned = 
 Currently, the aligning is just a quick image modification (move, stretch, mirror) and might not align images properly. 
 If thats the case, please align manually and set `aligned = True` to still get your false color composites.
 
-#Composites
-Currently, this script supports 3 different composition:
-1. General Green
-2. Cold color
+# Composites
+Currently, this script supports 5 different composition:
+1. General_Green
+2. Cold_Color
 3. Water
+4. Desert_red
+5. Desert_blue
 
