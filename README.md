@@ -1,13 +1,14 @@
 # PROBA-V Align & False color
-This script takes three channels from PROBA-V's vegetation instrument, overlays them and creates false color images.
+This script takes the V1, V2 and V3 channels from PROBA-V's vegetation instrument, overlays them and creates false color images.
+It also takes V4, V5 and V6 and combines them to a full-swath image.
 
 # Requirements
 For this script to work, you need Python 3 installed and added to PATH. 
-After you installed Python on your machine, you need to install Image, Imageops, ImageChops and tqdm by running
+After you installed Python on your machine, you need to install Image, Imageops, ImageChops, colorama and tqdm by running
 `pip install Pillow tqdm colorama`.
 
 # Usage
-Simply put images named "Vegetation_1.png", "Vegetation_2.png" and "Vegetation_3.png" into the same directory as the script.
+Simply put images named "Vegetation_1.png", "Vegetation_2.png", etc. into the same directory as the script.
 Then you just have to run the script. That's it. All results will be saved in the same directory. 
 If your inputs are already aligned, you can skip aligning by setting `aligned = True` in the script
 
