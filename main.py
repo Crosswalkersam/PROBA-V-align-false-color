@@ -3,7 +3,7 @@ from tqdm import tqdm
 from colorama import Fore
 
 aligned = False
-gain = 2
+gain = 2.0
 
 ChannelA = Image.open("Vegetation_1.png")
 ChannelB = Image.open("Vegetation_2.png")
@@ -44,9 +44,9 @@ print(Fore.YELLOW + "Aligning Channel 4, 5 and 6 to a full-swath image...")
 for x in tqdm(range(ChannelD.width)):
     for y in range(ChannelD.height):
         try:
-            Swath.putpixel((x, y + 50), ChannelF.getpixel((x, y)) * gain)
-            Swath.putpixel((x + 969, y), ChannelE.getpixel((x, y)) * gain)
-            Swath.putpixel((x + 1906, y + 50), ChannelD.getpixel((x, y)) * gain)
+            Swath.putpixel((x, y + 50), int(ChannelF.getpixel((x, y)) * gain))
+            Swath.putpixel((x + 969, y), int(ChannelE.getpixel((x, y)) * gain))
+            Swath.putpixel((x + 1906, y + 50), int(ChannelD.getpixel((x, y)) * gain))
         except:
             Swath.putpixel((x, y), 0)
 Swath.save("455_swath.png")
