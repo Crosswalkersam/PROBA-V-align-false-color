@@ -49,7 +49,7 @@ for x in tqdm(range(ChannelD.width)):
             Swath.putpixel((x + 1906, y + 50), int(ChannelD.getpixel((x, y)) * gain))
         except:
             Swath.putpixel((x, y), 0)
-Swath.save("455_swath.png")
+Swath.save("456_swath.png")
 #Create and save composites ====================================================================
 print(Fore.YELLOW + "Creating composites...")
 for x in tqdm(range(ChannelA.width)):
