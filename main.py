@@ -3,6 +3,7 @@ from tqdm import tqdm
 from colorama import Fore
 
 aligned = False
+gain = 2
 
 ChannelA = Image.open("Vegetation_1.png")
 ChannelB = Image.open("Vegetation_2.png")
@@ -43,12 +44,12 @@ print(Fore.YELLOW + "Aligning Channel 4, 5 and 6 to a full-swath image...")
 for x in tqdm(range(ChannelD.width)):
     for y in range(ChannelD.height):
         try:
-            Swath.putpixel((x, y + 50), ChannelF.getpixel((x, y)))
-            Swath.putpixel((x + 969, y), ChannelE.getpixel((x, y)))
-            Swath.putpixel((x + 1906, y + 50), ChannelD.getpixel((x, y)))
+            Swath.putpixel((x, y + 50), ChannelF.getpixel((x, y)) * gain)
+            Swath.putpixel((x + 969, y), ChannelE.getpixel((x, y)) * gain)
+            Swath.putpixel((x + 1906, y + 50), ChannelD.getpixel((x, y)) * gain)
         except:
             Swath.putpixel((x, y), 0)
-Swath.save("345_swath.png")
+Swath.save("455_swath.png")
 #Create and save composites ====================================================================
 print(Fore.YELLOW + "Creating composites...")
 for x in tqdm(range(ChannelA.width)):
