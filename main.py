@@ -7,7 +7,11 @@ aligned = False
 ChannelA = Image.open("Vegetation_1.png")
 ChannelB = Image.open("Vegetation_2.png")
 ChannelC = Image.open("Vegetation_3.png")
+ChannelD = Image.open("Vegetation_4.png")
+ChannelE = Image.open("Vegetation_5.png")
+ChannelF = Image.open("Vegetation_6.png")
 
+#Align V1, V2 and V3 and save the aligned images =====================================
 if(aligned == False):
     print(Fore.YELLOW + "[Info] Trying to overlay images...")
     print(Fore.GREEN + "Saving Channel 1...")
@@ -33,7 +37,20 @@ RGB = Image.new('RGB', (ChannelA.width, ChannelA.height))
 Water = Image.new('RGB', (ChannelA.width, ChannelA.height))
 Desert_red = Image.new('RGB', (ChannelA.width, ChannelA.height))
 Desert_blue = Image.new('RGB', (ChannelA.width, ChannelA.height))
-
+Swath = Image.new('I', (2929, ChannelD.height + 55))
+#Create and save full swath image ===============================================================
+print(Fore.YELLOW + "Aligning Channel 4, 5 and 6 to a full-swath image...")
+for x in tqdm(range(ChannelD.width)):
+    for y in range(ChannelD.height):
+        try:
+            Swath.putpixel((x, y + 50), ChannelF.getpixel((x, y)))
+            Swath.putpixel((x + 969, y), ChannelE.getpixel((x, y)))
+            Swath.putpixel((x + 1906, y + 50), ChannelD.getpixel((x, y)))
+        except:
+            Swath.putpixel((x, y), 0)
+Swath.save("345_swath.png")
+#Create and save composites ====================================================================
+print(Fore.YELLOW + "Creating composites...")
 for x in tqdm(range(ChannelA.width)):
     for y in range(ChannelA.height):
         try:
