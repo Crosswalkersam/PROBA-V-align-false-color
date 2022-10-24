@@ -1,7 +1,7 @@
 from PIL import Image, ImageOps, ImageChops
 from tqdm import tqdm
 from colorama import Fore
-
+#User may change these================================================================
 aligned = False
 denoise = True
 gain = 2.0
@@ -109,11 +109,7 @@ for x in tqdm(range(ChannelA.width)):
         G = int(-0.68 * A_value + 3.36 * B_value + 3.37 * C_value)
         B = int(-2.19 * A_value + 16.92 * B_value - 9.45 * C_value)
         Desert_red.putpixel((x,y), (R, G, B))
-#Desert_Blue=================================================================
-        B = int(-3.7 * A_value - 0.86 * B_value + 8.7 * C_value)
-        G = int(-0.68 * A_value + 3.36 * B_value + 3.37 * C_value)
-        R = int(-2.19 * A_value + 16.92 * B_value - 9.45 * C_value)
-        Desert_blue.putpixel((x,y), (R, G, B))
+        Desert_blue.putpixel((x,y), (B, G, R))
 
 print(Fore.GREEN + "Done! Saving images!")
 Green.save("Green.jpg")
