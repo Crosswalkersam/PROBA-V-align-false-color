@@ -3,6 +3,7 @@ from tqdm import tqdm
 from colorama import Fore
 
 aligned = False
+denoise = True
 gain = 2.0
 
 ChannelA = Image.open("Vegetation_1.png")
@@ -50,6 +51,34 @@ for x in tqdm(range(ChannelD.width)):
         except:
             Swath.putpixel((x, y), 0)
 Swath.save("456_swath.png")
+#Denoise created 456 Swath======================================================================
+if(denoise == True):
+    print(Fore.YELLOW + "Denoising 456 swath image...")
+    averages = [0 for a in range(Swath.width)]
+    for x in range(Swath.width):
+        height = 0
+        for y in range(Swath.height):
+            if(Swath.getpixel((x, y)) != 0):
+                averages[x] = averages[x] + Swath.getpixel((x, y))
+                height += 1
+        averages[x] = int(averages[x] / height)
+    lowest = 65535
+    highest = 0
+    for a in range(Swath.height):
+        for b in range(Swath.width):
+            value = Swath.getpixel((b, a))
+            corrected = value - averages[b]
+            Swath.putpixel((b, a), corrected * 10)
+            if(corrected < lowest):
+                lowest = corrected
+            if(corrected > highest):
+                highest = corrected
+    for i in range(Swath.width):
+        for j in range(Swath.height):
+            value = Swath.getpixel((i, j))
+            normalized = int(65535*((value - lowest) / (highest - lowest)))
+            Swath.putpixel((i, j), normalized)
+    Swath.save("456_swath_denoised.png")
 #Create and save composites ====================================================================
 print(Fore.YELLOW + "Creating composites...")
 for x in tqdm(range(ChannelA.width)):
