@@ -10,7 +10,9 @@ After you installed Python on your machine, you need to install Image, Imageops,
 # Usage
 Simply put images named "Vegetation_1.png", "Vegetation_2.png", etc. into the same directory as the script.
 Then you just have to run the script. That's it. All results will be saved in the same directory. 
-If your inputs are already aligned, you can skip aligning by setting `aligned = True` in the script
+If your inputs are already aligned, you can skip aligning by setting `aligned = True` in the script.
+Currently, the script brightens the created 456 swath image a bit. The brightness is beeing controlled by the "gain" variable. 
+Gain = 1 means, that the output has the same brightness as the input.
 
 # Limits
 Currently, the aligning is just a quick image modification (move, stretch, mirror) and might not align images properly. 
