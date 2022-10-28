@@ -5,6 +5,7 @@ from colorama import Fore
 aligned = False
 denoise = True
 gain = 2.0
+compo_gain = 0.45
 
 ChannelA = Image.open("Vegetation_1.png")
 ChannelB = Image.open("Vegetation_2.png")
@@ -84,9 +85,9 @@ print(Fore.YELLOW + "Creating composites...")
 for x in tqdm(range(ChannelA.width)):
     for y in range(ChannelA.height):
         try:
-            A_value = ChannelA.getpixel((x,y)) / 65536 * 256 #Convert 16Bit Greyscale to 8 Bit RGB
-            B_value = ChannelB.getpixel((x,y)) / 65536 * 256
-            C_value = ChannelC.getpixel((x,y)) / 65536 * 256
+            A_value = ChannelA.getpixel((x,y)) / 65536 * 256 * compo_gain#Convert 16Bit Greyscale to 8 Bit RGB
+            B_value = ChannelB.getpixel((x,y)) / 65536 * 256 * compo_gain
+            C_value = ChannelC.getpixel((x,y)) / 65536 * 256 * compo_gain
         except:
             A_value = B_value = C_value = 0
 #General Green=========================================================
