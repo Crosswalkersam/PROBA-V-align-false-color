@@ -14,9 +14,8 @@ After you installed Python on your machine, you need to install Image, Imageops,
 4. Denoise the created full swath image
 
 # Usage
-Simply put images named "Vegetation_1.png", "Vegetation_2.png", etc. into the same directory as the script.
-Then you just have to run the script. That's it. All results will be saved in the same directory. 
-If your inputs are already aligned, you can skip aligning by setting `aligned = True` in the script.
+Simply put images named "Vegetation_1.png", "Vegetation_2.png", etc. into the same directory as the script and
+change setting in the the script. Then you just have to run the script. That's it. All results will be saved in the same directory. 
 
 # Settings
 The user select between different options on the beginning of the script. Those include:
