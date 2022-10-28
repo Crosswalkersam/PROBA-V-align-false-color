@@ -18,17 +18,12 @@ Simply put images named "Vegetation_1.png", "Vegetation_2.png", etc. into the sa
 Then you just have to run the script. That's it. All results will be saved in the same directory. 
 If your inputs are already aligned, you can skip aligning by setting `aligned = True` in the script.
 
-# Setting
+# Settings
 The user select between different options on the beginning of the script. Those include:
 1. `aligned` when set to False, the script will autoalign channels V1-V3. If set true, alignment will be skipped.
 2. `denoise` when set to True, the script will denoise the 456 full swath image. If False, denoising will be skipped.
 3. `gain` controls the brightness of the 456 full swath image. The higher, the brighter the resulting image
 4. `compo_gain` controls the brightness of the 123 composite images. The higher, the brighter the resulting image
-
-Currently, the script brightens the created 456 swath image a bit. The brightness is beeing controlled by the "gain" variable. 
-Gain = 1 means, that the output has the same brightness as the input.
-
-The denoise feauture is enabled per default, but can be disabled by setting `denoise = False` in the script.
 
 # Limits
 Currently, the aligning is just a quick image modification (move, stretch, mirror) and might not align images properly. 
