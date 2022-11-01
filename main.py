@@ -5,7 +5,7 @@ from colorama import Fore
 aligned = False
 denoise = True
 gain = 2.0
-compo_gain = 0.45
+compo_gain = 1.0
 
 ChannelA = Image.open("Vegetation_1.png")
 ChannelB = Image.open("Vegetation_2.png")
